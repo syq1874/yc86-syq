@@ -3,7 +3,13 @@ package com.yc.damai.bean;
 import java.sql.Timestamp;
 
 public class DmUser {
-    private Integer id;
+    @Override
+	public String toString() {
+		return "DmUser [id=" + id + ", ename=" + ename + ", cname=" + cname + ", password=" + password + ", email="
+				+ email + ", phone=" + phone + ", sex=" + sex + ", state=" + state + ", createtime=" + createtime + "]";
+	}
+
+	private Integer id;
 
     private String ename;
 
