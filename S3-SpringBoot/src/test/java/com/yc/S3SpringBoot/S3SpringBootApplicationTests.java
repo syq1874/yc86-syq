@@ -1,16 +1,31 @@
 package com.yc.S3SpringBoot;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import javax.annotation.Resource;
 
-@RunWith(SpringRunner.class)
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
+
+import com.yc.S3SpringBoot.biz.MailService;
+import com.yc.S3SpringBoot.dao.ProductMapper;
+
 @SpringBootTest
-public class S3SpringBootApplicationTests {
+class S3SpringBootApplicationTests {
+
+	@Resource
+	ProductMapper pm;
+
+	@Resource
+	MailService ms;
 
 	@Test
-	public void contextLoads() {
+	void contextLoads() {
+		Assert.isTrue(pm.selectAll().size() > 0, "没有数据");
+	}
+
+	@Test
+	void testMail() {
+		ms.sendSimpleMail("1953745128@qq.com", "密码重置验证码", "您重置密码的验证码是: 123456");
 	}
 
 }
