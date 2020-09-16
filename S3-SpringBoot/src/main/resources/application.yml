@@ -29,5 +29,9 @@ logging:
           
 mail:
    fromMail:
-      addr: 1953745128@qq.com          
+      addr: 1953745128@qq.com  
+      
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true        
           
